@@ -18,9 +18,7 @@ Point it at a `.uhh` file and it'll tell you:
 ## What it doesn't do (yet)
 
 Decode the per-sample data. Every 10 seconds the recorder writes 5-7 bytes per
-channel, and those bytes look like random noise no matter how hard I stare at
-them. The parser knows exactly where every one of those bytes is, it just has no
-idea what they mean. If you figure it out, please tell me. Seriously.
+channel, and those bytes look like random noise. The parser knows exactly where every one of those bytes is, it just has no idea what they mean.
 
 All the gory details (and some theories) are in [FINDINGS.md](FINDINGS.md).
 
