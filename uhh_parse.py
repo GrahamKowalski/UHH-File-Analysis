@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Parser for .uhh history files from Honeywell-style paperless chart recorders.
+Parser for .uhh history files from Eurotherm paperless chart recorders.
 
 Format notes are in FINDINGS.md.
 

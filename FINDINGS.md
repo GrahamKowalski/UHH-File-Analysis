@@ -9,12 +9,12 @@ The per-sample payload is not.
 
 ## 1. What the file is
 
-A paperless chart recorder history file (Honeywell-style, `.uhh` = unsecured
-history). The furnace file contains:
+A history file from a Eurotherm paperless chart recorder (5100/6100 series).
+The furnace file contains:
 
 | Field | Value |
 |---|---|
-| Site | Halvorsen Company |
+| Site | HXXXXXXX Company |
 | Instrument | Gas Furnace |
 | Firmware / file format | 5.2 / 2.0 |
 | Locale / timezone | en-US / EST |
@@ -182,8 +182,8 @@ Two theories fit:
   records repeat byte for byte, the payload is plain and theory 1 wins. If they
   keep changing, it is whitened and theory 2 wins. This is probably the most
   useful next step.
-* **Export the same file to CSV from the vendor software (TrendManager /
-  TrendView).** Real values at 10 s resolution would turn this from guessing into
+* **Export the same file to CSV from the vendor software (Eurotherm Data
+  Reviewer).** Real values at 10 s resolution would turn this from guessing into
   curve fitting. With 910 known values per pen, any plain encoding should fall
   right out.
 * **Record two files a few minutes apart from an unchanged process.** Comparing

@@ -1,10 +1,10 @@
 # uhh-parse
 
-A Python parser for `.uhh` files, the history files that Honeywell-style paperless
-chart recorders spit out. As far as I can tell, the only official way to read them
+A Python parser for `.uhh` files, the history files that Eurotherm paperless
+chart recorders (5100/6100 at least) spit out. As far as I can tell, the only official way to read them
 is the vendor's software, which I did not feel like dealing with. So I
-reverse-engineered the format instead, which took way longer than installing the
-software would have. No regrets. (Some regrets.)
+looked into the format instead, which took way longer than installing the
+software would have :P 
 
 ## What it does
 
@@ -13,7 +13,7 @@ Point it at a `.uhh` file and it'll tell you:
 - Site name, instrument name, firmware, timezone, all that metadata stuff
 - Pen (channel) config: names, ranges, units
 - The actual temperature readings from the block snapshots (roughly one every 20 minutes)
-- How many sample records there are and how often they were logged (every 10 s in the samples here)
+- How many sample records there are and how often they were logged (every 10s in the samples here)
 
 ## What it doesn't do (yet)
 
@@ -26,10 +26,10 @@ All the gory details (and some theories) are in [FINDINGS.md](FINDINGS.md).
 
 ## Usage
 
-Python 3.7+, standard library only. No `pip install` required, you're welcome.
+Python 3.7+, standard lib
 
 ```
-python uhh_parse.py samples/Gas-Furnace~20240123_810D9B30000004C0.uhh
+python uhh_parse.py [your data].uhh
 ```
 
 Options:
@@ -38,7 +38,7 @@ Options:
 |---|---|
 | `--csv out.csv` | Dump the snapshot readings to CSV |
 | `--json out.json` | Dump everything it decoded to JSON |
-| `--dump` | Print the first 10 raw sample records, for staring at |
+| `--dump` | Print the first 10 raw sample records, for headers |
 
 Example output (trimmed):
 
@@ -60,22 +60,18 @@ Example output (trimmed):
 
 - `Gas-Furnace~20240123_810D9B30000004C0.uhh`: about 2.5 hours of a furnace
   heating a load up to ~960 °F
-- `smol.uhh`: a tiny one with just 3 samples. Good for debugging, bad for
-  everything else.
+- `smol.uhh`: a tiny one with just 3 samples. Good for debugging
 
 ## Things that would help
 
-If you have one of these recorders and want to contribute, the most useful
+If you have any other eurotherm recorders and the script isn't working, the most useful
 things would be:
 
-1. A `.uhh` file plus the CSV export of the same file from the vendor software
-   (TrendManager / TrendView). Having the real values next to the encoded bytes
-   would crack this wide open.
+1. A `.uhh` file plus the CSV export of the same file from datareviewer. 
 2. A recording of the instrument doing nothing (thermocouples disconnected, or
-   sitting at a stable setpoint). Boring data is really useful here.
+   sitting at a stable setpoint). idle data is really useful here.
 
 ## Disclaimer
 
-Not affiliated with Honeywell in any way. This is a hobby project built on
-guesswork, hex dumps, and stubbornness. Don't use it for anything where a wrong
-number gets someone hurt.
+Not affiliated with Eurotherm in any way. This is a hobby project built on
+testing, hex dumps, and time. I'm not responsible if you fail an audit.
