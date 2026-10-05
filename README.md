@@ -2,9 +2,9 @@
 
 A Python parser for `.uhh` files, the history files that Eurotherm paperless
 chart recorders (5100/6100 at least) spit out. As far as I can tell, the only official way to read them
-is the vendor's software, which I did not feel like dealing with. So I
+is the vendor's software. So I
 looked into the format instead, which took way longer than installing the
-software would have :P 
+software would have 
 
 ## What it does
 
